@@ -29,7 +29,7 @@ public class LinkedList {
 		System.out.println("NULL");
 	}
 	
-	public void removeNode(int key) {
+	public void removeAll(int key) {
 		Node temp = head, prev = temp;
 
 		if (temp != null && temp.data == key) {
@@ -47,6 +47,24 @@ public class LinkedList {
 
 	}
 	
+	public void removeNode(int value) {
+		Node temp = head, prev = null;
+		
+		if(temp!=null && temp.data == value) {
+			head = temp.next;
+		}
+		
+		while(temp!=null) {
+			
+			if(temp.data == value) {
+				prev.next = temp.next;
+				break;
+			}
+			prev = temp;
+			temp = temp.next;
+		}
+	}
+	
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.push(1);
@@ -59,7 +77,8 @@ public class LinkedList {
 		list.push(3);
 		
 		list.printList();
-		list.removeNode(3);
+		list.removeNode(6);
+		list.removeAll(3);
 		list.printList();
 	}
 

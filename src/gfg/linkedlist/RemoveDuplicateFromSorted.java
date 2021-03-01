@@ -6,7 +6,7 @@ public class RemoveDuplicateFromSorted {
 
 	public static void main(String[] args) {
 		LinkedList llist = new LinkedList();
-        llist.push(20);
+        llist.push(13);
         llist.push(13);
         llist.push(13);
         llist.push(11);
@@ -20,18 +20,30 @@ public class RemoveDuplicateFromSorted {
         llist.printList();
 	}
 
+	/*
+	 * private static void removeDuplicate(LinkedList llist) { Node curr =
+	 * llist.head;
+	 * 
+	 * while (curr !=null) { Node temp = curr.next;
+	 * 
+	 * while(temp !=null && temp.data == curr.data) { temp = temp.next; } curr.next
+	 * = temp; curr = curr.next;
+	 * 
+	 * } }
+	 */
+	
+	
+	//different way
 	private static void removeDuplicate(LinkedList llist) {
 		Node curr = llist.head;
 		
-		while (curr !=null) {
-			Node temp = curr.next;
-			
-			while(temp !=null && temp.data == curr.data) {
-				temp = temp.next;
+		while(curr!=null && curr.next != null) {
+			if(curr.data == curr.next.data) {
+				curr.next = curr.next.next;
 			}
-			curr.next = temp;
-			curr = curr.next;
-			
+			else {
+				curr = curr.next;
+			}
 		}
 	}
 

@@ -24,19 +24,21 @@ public class RemoveDuplicateFromUnsorted {
 	private static void removeDuplicate(LinkedList list) {
 		Node temp1 = list.head;
 		Node temp2 = null;
-		Node temp3 = null;
+		Node prev = null;
 		
 		while(temp1 != null && temp1.next!=null) {
 			temp2 = temp1.next;
+			prev = temp1;
 			
 			while(temp2 != null) {
-				if(temp1.data == temp2.next.data) {
-					temp3 = temp2.next;
-					temp2.next = temp2.next.next;
+				if(temp1.data == temp2.data) {
+					//prev.next 
+					temp2 = temp2.next.next;
 				}
 				else {
 					temp2 = temp2.next;
 				}
+				prev = prev.next;
 			}
 			temp1 = temp1.next;
 		}
