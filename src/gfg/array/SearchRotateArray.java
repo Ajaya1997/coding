@@ -51,7 +51,6 @@ public class SearchRotateArray {
 			mid = (low + high)/2;
 		}
 		return index;
-
 	}
 
 	private static int findPivot(int[] arr, int start, int end) {
